@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Idhant — student, developer & creator</title>
+<meta name="description" content="Idhant — student, developer and creator. Building software, experimenting with AI, and making communication more accessible with SignBridge." />
+<meta property="og:title" content="Idhant — building, creating, learning." />
+<meta property="og:image" content="assets/photos/signbridge-workspace.webp" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial' font-size='20' font-style='italic' text-anchor='middle' fill='%23000'%3Ei%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-booting">
+
+<div class="backdrop" aria-hidden="true"></div>
+
+<div id="boot" class="boot" role="status" aria-label="Loading">
+  <img src="assets/el/swag.png" alt="" class="boot__img" />
+  <div class="boot__bar"><span id="bootFill"></span></div>
+  <div class="boot__pct" id="bootPct">000</div>
+</div>
+
+<div class="ctl">
+  <button class="ctl__b" id="invertToggle" aria-pressed="false">invert</button>
+  <button class="ctl__b" id="soundToggle" aria-pressed="false">music on/off</button>
+</div>
+
+<nav class="site-nav" aria-label="Main navigation"><a href="#top" data-nav class="site-brand">i.</a><div><a href="#work" data-nav>videos</a><a href="#about" data-nav>about</a><a href="#project" data-nav>project</a><a href="#contact" data-nav>find me ↗</a></div></nav>
+<main id="top">
+
+<!-- ============ 01 · FRONT ============ -->
+<section class="sec sec--dark hero" id="hero">
+  <div class="stage" data-rise>
+    <img src="assets/el/star-a.png" alt="" class="el el--star-a" aria-hidden="true" />
+    <img src="assets/el/star-b.png" alt="" class="el el--star-b" aria-hidden="true" />
+    <img src="assets/el/dice.png" alt="" class="el el--dice" aria-hidden="true" />
+    <h1 class="lay lay--name">idhant</h1>
+    <p class="lay lay--tagline">builds.</p>
+    <p class="hero__intro">STUDENT / DEVELOPER / CREATOR</p>
+  </div>
+  <a class="cue" href="#work" data-nav aria-label="Scroll to work"><i></i></a>
+</section>
+
+<!-- ============ 02 · WORK ============ -->
+<section class="sec sec--dark machine" id="work" aria-label="Video portfolio">
+  <div class="machine__heading"><p class="eyebrow">01 / PLAY & EXPLORE</p><h2>My video archive.</h2><p>← → browse · ✕ watch the full video</p></div>
+  <div class="stage" aria-hidden="true">
+    <img src="assets/el/flower.png" alt="" class="el el--flower" />
+  </div>
+  <div class="machine__stage">
+    <canvas id="pspCanvas"></canvas>
+    <div class="machine__loading" id="pspLoading"><i class="spin" aria-hidden="true"></i></div>
+  </div>
+  <div class="rail" id="rail" aria-live="polite">
+    <b id="railIdx">01</b><i id="railTot">/03</i>
+    <a class="rail__open" id="railOpen" href="assets/videos/video-01.mp4" target="_blank" rel="noopener" aria-label="Watch the full video">↗</a>
+  </div>
+  <div class="keys" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd><kbd>✕</kbd></div>
+</section>
+
+<!-- ============ 03 · ABOUT ============ -->
+<section class="sec sec--dark about" id="about">
+  <div class="stage">
+    <img src="assets/el/cd-a.png" alt="" class="el el--cd-a" aria-hidden="true" />
+    <img src="assets/el/cd-b.png" alt="" class="el el--cd-b" aria-hidden="true" />
+    <div class="about__content">
+      <p class="eyebrow">02 / THE PERSON BEHIND THE PROJECTS</p>
+      <h2>About me<span>.</span></h2>
+      <div class="about__layout">
+        <div class="about__photos" aria-label="A few moments from my life">
+          <figure class="photo-print photo-print--candid">
+            <button class="photo-button" type="button" data-photo="0" aria-label="Enlarge the black-and-white candid photo">
+              <img src="assets/photos/between-ideas.webp" srcset="assets/photos/between-ideas-small.webp 800w, assets/photos/between-ideas.webp 1600w" sizes="(max-width: 820px) 86vw, 40vw" width="1600" height="898" loading="lazy" decoding="async" alt="A black-and-white candid with friends at a table." />
+              <span class="photo-expand" aria-hidden="true">↗</span>
+            </button>
+            <figcaption><span>01 / BETWEEN IDEAS</span><span>↗</span></figcaption>
+          </figure>
+          <figure class="photo-print photo-print--trophy">
+            <button class="photo-button" type="button" data-photo="1" aria-label="Enlarge the trophy photo">
+              <img src="assets/photos/a-moment-to-keep.webp" srcset="assets/photos/a-moment-to-keep-small.webp 800w, assets/photos/a-moment-to-keep.webp 1600w" sizes="(max-width: 820px) 72vw, 32vw" width="1600" height="898" loading="lazy" decoding="async" alt="A student in sunglasses holding a trophy at a school event." />
+              <span class="photo-expand" aria-hidden="true">↗</span>
+            </button>
+            <figcaption><span>02 / A MOMENT TO KEEP</span><span>↗</span></figcaption>
+          </figure>
+          <p class="photo-note">a few frames along the way.</p>
+        </div>
+        <div class="about__text">
+      <div class="about__bio">
+        <p class="about__lead">I'm Idhant — a student, developer, creator, and someone who loves turning ideas into things people can actually use.</p>
+        <p>I build software, experiment with AI, and enjoy figuring out how things work. My main project, <a href="#project" data-nav>SignBridge</a>, is an AI-powered Indian Sign Language communication system focused on making communication more accessible while keeping user privacy at the center.</p>
+        <p>Outside of coding, I'm into football, technology, content creation, and constantly learning new things. I like taking on projects that challenge me, whether that's building an app from scratch, experimenting with new technology, or creating something completely random just because I wondered if I could.</p>
+        <p>I'm still a student, but I'm already building, competing, experimenting, and learning by doing — and I'm just getting started.</p>
+      </div>
+      <div class="about__interests" aria-label="Interests"><span>SOFTWARE</span><span>AI</span><span>FOOTBALL</span><span>CREATING</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--dark project" id="project" aria-labelledby="projectTitle">
+  <div class="project__inner">
+    <p class="eyebrow">03 / FEATURED PROJECT</p>
+    <div class="project__top"><h2 id="projectTitle">SignBridge<span>↗</span></h2><span class="project__index">001</span></div>
+    <div class="project__body">
+      <figure class="project__photo">
+        <div class="project__photo-head"><span>THE WORKSPACE / SIGNBRIDGE</span><span>003</span></div>
+        <button class="photo-button" type="button" data-photo="2" aria-label="Enlarge the SignBridge workspace photo">
+          <img src="assets/photos/signbridge-workspace.webp" srcset="assets/photos/signbridge-workspace-small.webp 800w, assets/photos/signbridge-workspace.webp 1600w" sizes="(max-width: 820px) 86vw, 45vw" width="1600" height="1205" loading="lazy" decoding="async" alt="A black-and-white workspace with code on a laptop, SignBridge on a monitor, a camera and a game controller." />
+          <span class="photo-expand" aria-hidden="true">↗</span>
+        </button>
+        <figcaption><span>FROM AN IDEA TO SOMETHING REAL.</span><span>↗</span></figcaption>
+      </figure>
+      <div class="project__description"><p class="project__subtitle">Communication.<br>With fewer barriers.</p><p>AI-powered Indian Sign Language communication system, focused on making communication more accessible while keeping user privacy at the center.</p><div class="project__tags"><span>ARTIFICIAL INTELLIGENCE</span><span>INDIAN SIGN LANGUAGE</span></div><div class="project__links"><a href="https://sign-bridge-plum-eta.vercel.app/" target="_blank" rel="noopener noreferrer">Explore live project ↗</a><a href="https://github.com/paul-idhant/SignBridge" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · CONTACT ============ -->
+<section class="sec sec--dark contact" id="contact">
+  <div class="stage">
+    <img src="assets/el/cards.png" alt="" class="el el--cards" aria-hidden="true" />
+    <h2 class="lay lay--contact">find</h2>
+    <p class="lay lay--me" aria-hidden="true">me.</p>
+    <div class="lay lay--icons">
+      <a href="https://www.instagram.com/paul_idhant/" target="_blank" rel="noopener noreferrer" aria-label="Find Idhant on Instagram, @paul_idhant"><img src="assets/el/ic-ig.png" alt="" class="icons__ig" /><span>@paul_idhant ↗</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<dialog class="photo-viewer" id="photoViewer" aria-labelledby="photoViewerCaption">
+  <div class="photo-viewer__top"><span>PERSONAL ARCHIVE</span><button type="button" id="photoClose" aria-label="Close photo viewer">close ✕</button></div>
+  <div class="photo-viewer__frame"><img id="photoViewerImage" alt="" /></div>
+  <div class="photo-viewer__bottom"><button type="button" id="photoPrev" aria-label="Previous photo">←</button><p id="photoViewerCaption"></p><button type="button" id="photoNext" aria-label="Next photo">→</button></div>
+</dialog>
+
+<!-- Original soundtrack, preloaded and started after browser-approved interaction. -->
+<audio id="bgAudio" src="assets/audio/theme.mp3" loop preload="auto" playsinline></audio>
+
+<script type="importmap">
+{ "imports": {
+    "three": "./vendor/three/three.module.js",
+    "three/addons/": "./vendor/three/addons/"
+} }
+</script>
+<script src="js/data.js"></script>
+<script src="js/photos.js"></script>
+<script src="js/contours.js"></script>
+<script src="js/main.js"></script>
+<script src="js/track.js"></script>
+<script type="module" src="js/psp.js"></script>
+</body>
+</html>
