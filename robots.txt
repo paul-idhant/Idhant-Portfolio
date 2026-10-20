@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://idhant-portfolio.vercel.app/sitemap.xml
+Sitemap: https://idhant-mu.vercel.app/sitemap.xml
