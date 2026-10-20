@@ -85,7 +85,7 @@
 </div>
 
 <header>
-<nav class="site-nav" aria-label="Main navigation"><a href="#top" data-nav class="site-brand" aria-label="Back to top — Idhant">i.</a><div><a href="#work" data-nav>videos</a><a href="#about" data-nav>about</a><a href="#project" data-nav>project</a><a href="#contact" data-nav>find me ↗</a></div></nav>
+<nav class="site-nav" aria-label="Main navigation"><a href="#top" data-nav class="site-brand" aria-label="Back to top — Idhant">i.</a><div><a href="#work" data-nav>videos</a><a href="#about" data-nav>about</a><a href="#project" data-nav>project</a><a href="#contact" data-nav>find me ↗</a><a href="#receipt" data-nav>receipt ↗</a></div></nav>
 </header>
 <main id="top">
 
@@ -190,6 +190,102 @@
   </div>
 </section>
 
+<!-- ============ 05 · RECEIPT — personal archive ============ -->
+<section class="sec sec--dark receipt" id="receipt" aria-labelledby="receiptTitle">
+  <div class="receipt__inner">
+    <div class="receipt__head">
+      <p class="eyebrow">04 / TAKE A MEMORY WITH YOU</p>
+      <h2 id="receiptTitle">Printed for you<span>↗</span></h2>
+      <p>Not a bill — a keepsake. Tap <em>Print</em> and watch your personal receipt roll out: who I am, what I build, and how to find me. Same tooth-cut paper, same soft thud.</p>
+    </div>
+
+    <div class="rp-root" id="rpRoot" data-stage="processing" tabindex="0" aria-label="Receipt printer — press Enter to replay">
+      <div class="rp-machine">
+        <div class="rp-header">
+          <div class="rp-logo" aria-hidden="true">✦</div>
+          <button class="rp-replay" id="rpReplay" type="button" aria-label="Replay printing animation">↺ Replay</button>
+        </div>
+        <div class="rp-screen" aria-live="polite">
+          <div class="rp-screen-inner">
+            <div class="rp-pro">IDHANT — PORTFOLIO</div>
+            <div class="rp-totals">
+              <div>
+                <div class="rp-pro-name">Personal file</div>
+                <div class="rp-pro-sub">Annual • Admit one</div>
+              </div>
+              <div class="rp-total-box">
+                <div class="rp-total-label">Total</div>
+                <div class="rp-total-val" id="rpTotalVal">£230.40</div>
+              </div>
+            </div>
+            <div class="rp-status">
+              <span class="rp-status-dot" id="rpStatusDot" aria-hidden="true"><span class="spin"></span></span>
+              <span id="rpStatus">Processing your order</span>
+            </div>
+          </div>
+        </div>
+        <div class="rp-slot" aria-hidden="true"></div>
+      </div>
+
+      <div class="rp-output" aria-hidden="true">
+        <div class="rp-paper-wrap">
+          <article class="rp-paper" id="rpPaper" aria-label="Printed receipt with personal details">
+            <div class="rp-paper-head">
+              <div class="rp-paper-logo" aria-hidden="true">✦</div>
+              <div class="rp-paper-title">IDHANT — PORTFOLIO RECEIPT</div>
+              <div class="rp-paper-sub">KEEP THIS COPY • TAKE ONE</div>
+            </div>
+
+            <div class="rp-row rp-row--big"><b>PERSONAL FILE</b><b>2026</b></div>
+            <div class="rp-row" style="opacity:.55;margin-top:2px"><span>Student / Developer / Creator</span><span>Admit one</span></div>
+
+            <div class="rp-divider"></div>
+
+            <div class="rp-kv"><span>Focus</span><span>Software • AI • Accessibility</span></div>
+            <div class="rp-kv"><span>Toolkit</span><span>JS • Three.js • Python</span></div>
+            <div class="rp-kv"><span>Currently</span><span>Building SignBridge</span></div>
+
+            <div class="rp-divider"></div>
+
+            <div class="rp-row"><span>ABOUT ME</span><span>01</span></div>
+            <p style="margin:6px 0 8px;opacity:.82;line-height:1.6">I’m Idhant — I turn ideas into things people can use. Student by day, builder by night. Football, code, and “what if I tried…” projects.</p>
+            <div class="rp-kv"><span>Interests</span><span>SOFTWARE • AI • FOOTBALL • CREATING</span></div>
+
+            <div class="rp-divider"></div>
+
+            <div class="rp-row"><span>FEATURED PROJECT</span><span>001</span></div>
+            <div style="margin:6px 0 8px">
+              <div style="font-size:13px;letter-spacing:-.03em">SignBridge ↗</div>
+              <div style="opacity:.68;line-height:1.5;margin-top:4px">AI-powered Indian Sign Language comms. Privacy-first, built to make conversation easier.</div>
+            </div>
+            <div class="rp-kv"><span>Live</span><span>sign-bridge-plum-eta.vercel.app</span></div>
+            <div class="rp-kv"><span>Code</span><span>github.com/paul-idhant/SignBridge</span></div>
+
+            <div class="rp-divider--solid"></div>
+
+            <div class="rp-kv"><span>Find me</span><span>@paul_idhant ↗</span></div>
+            <div class="rp-kv"><span>Contact</span><span>paul-idhant • GitHub</span></div>
+            <div class="rp-kv"><span>Date</span><span id="rpDate">11 AUG 2026 • 14:32</span></div>
+            <div class="rp-kv"><span>Order</span><span id="rpOrder">ORD-2848 / IDHNT-2026</span></div>
+
+            <div class="rp-foot">
+              <p><strong>THANK YOU FOR VISITING!</strong></p>
+              <p style="opacity:.6">Total paid: your time ♡ — appreciated.</p>
+              <div class="rp-barcode" aria-hidden="true"></div>
+              <div class="rp-barcode-label">IDHNT-2026 • <span id="rpBarcodeLabel">ORD-2848</span></div>
+            </div>
+
+            <div class="rp-print">
+              <button type="button" id="rpPrintBtn" aria-label="Reprint receipt">Print another copy</button>
+            </div>
+            <div class="rp-note">Tip: Hit Replay on the machine to watch it print again.</div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="site-footer" aria-label="Footer">
@@ -217,6 +313,7 @@
 <script src="js/contours.js"></script>
 <script src="js/main.js"></script>
 <script src="js/track.js"></script>
+<script src="js/receipt.js"></script>
 <script type="module" src="js/psp.js"></script>
 </body>
 </html>
