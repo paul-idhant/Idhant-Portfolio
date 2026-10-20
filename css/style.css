@@ -550,18 +550,30 @@ body.photo-is-open{overflow:hidden}
   .rp-replay,.rp-print button{transition:none}
 }
 
-/* ============ DYNAMIC BUTTON — share ============ */
-.dyn-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;height:30px;padding:0 14px;border-radius:999px;border:1px solid #0a0a0a;background:#0a0a0a;color:#fdfdfc;font:12px var(--f-vcr);letter-spacing:.04em;cursor:pointer;overflow:hidden;white-space:nowrap;transition:background .15s,border-color .15s,color .15s,transform .15s,width .26s cubic-bezier(.23,1,.32,1)}
+/* ============ DYNAMIC BUTTON — share ============
+   Geometry straight from the reference: h-7 (28px), px-2 (8px), rounded-lg
+   (8px), text-sm (14px) font-medium sans, gap-1.5 (6px), 15px icon,
+   active:scale(.97), spring on width. Colours ride the site theme vars
+   (--light/--dark/--on-dark) so the invert toggle flips them too. */
+.dyn-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 8px;border-radius:8px;font:500 14px/1 var(--f);letter-spacing:0;cursor:pointer;overflow:hidden;white-space:nowrap;transition:background-color .15s cubic-bezier(.23,1,.32,1),border-color .15s cubic-bezier(.23,1,.32,1),color .15s cubic-bezier(.23,1,.32,1),transform .15s cubic-bezier(.23,1,.32,1),width .26s cubic-bezier(.23,1,.32,1)}
 .dyn-btn:active{transform:scale(.97)}
-.dyn-btn:hover{background:#1a1a1e}
-.dyn-btn--secondary{background:#fff;color:#0a0a0a;border-color:#e2e2e2}
-.dyn-btn--secondary:hover{background:#f5f5f5;border-color:#d8d8d8}
+/* primary = solid ink that contrasts the current paper: white-on-black page
+   gets a light button, inverted page gets a dark one — exactly like the
+   reference's neutral-950 pill sitting on its light demo panel */
+.dyn-btn--primary{background:var(--on-dark);color:var(--dark);border:1px solid var(--on-dark)}
+.dyn-btn--primary:hover{background:color-mix(in oklab,var(--on-dark) 86%,var(--dark));border-color:color-mix(in oklab,var(--on-dark) 86%,var(--dark))}
+/* secondary = paper button with a hairline border, like the reference's
+   white/neutral-200 variant */
+.dyn-btn--secondary{background:var(--dark);color:var(--on-dark);border:1px solid color-mix(in oklab,var(--on-dark) 22%,transparent)}
+.dyn-btn--secondary:hover{background:color-mix(in oklab,var(--on-dark) 6%,var(--dark));border-color:color-mix(in oklab,var(--on-dark) 34%,transparent)}
 .dyn-btn__inner{position:relative;display:inline-flex;align-items:center;gap:6px}
 .dyn-btn__icon,.dyn-btn__label{display:inline-flex;align-items:center;justify-content:center;transition:opacity .18s cubic-bezier(.23,1,.32,1),transform .18s cubic-bezier(.23,1,.32,1)}
 .dyn-btn__icon{width:15px;height:15px;flex:none}
-.dyn-measure{position:absolute;left:-9999px;top:-9999px;pointer-events:none;opacity:0;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;padding:0 14px;border:1px solid transparent;font:12px var(--f-vcr)}
+.dyn-btn__icon svg{width:15px;height:15px;display:block}
+/* hidden ruler used by js/share.js — must mirror the button's inner metrics */
+.dyn-measure{position:absolute;left:-9999px;top:-9999px;pointer-events:none;opacity:0;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;font:500 14px/1 var(--f)}
 .dyn-measure__inner{display:inline-flex;align-items:center;gap:6px}
 .share-actions{display:flex;flex-direction:column;align-items:center;gap:14px;margin:28px auto 0;max-width:560px;text-align:center}
 .share-actions__hint{font:12px var(--f-vcr);letter-spacing:.08em;opacity:.54}
 .receipt__share{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
-.receipt__share .dyn-btn{height:34px;padding:0 16px}
+@media(prefers-reduced-motion:reduce){.dyn-btn,.dyn-btn__icon,.dyn-btn__label{transition:none}}
