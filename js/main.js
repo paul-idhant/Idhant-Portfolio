@@ -289,4 +289,28 @@
     }, { threshold: 0.18 });
     document.querySelectorAll('.about, .contact').forEach(function (el) { io.observe(el); });
   }
+
+  /* ---------------------------------------------------------- */
+  /* FOOTER YEAR & MISC POLISH                                   */
+  /* ---------------------------------------------------------- */
+  try {
+    var yearEl = document.getElementById('footerYear');
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  } catch (e) {}
+
+  // Ensure boot releases even if SK.fireReady races with reduced-motion bail
+  window.addEventListener('error', function (e) {
+    if (e && e.message && e.message.indexOf('psp') > -1) {
+      SK.fireReady();
+    }
+  });
+
+  // Respect data-saving / slow-connection hints: silence autoplay on 2G
+  try {
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (conn && (conn.saveData || /2g/.test(conn.effectiveType))) {
+      wanted = false;
+      reflectSound();
+    }
+  } catch (e) {}
 })();

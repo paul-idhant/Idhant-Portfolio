@@ -3,54 +3,115 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark light" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Idhant" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 <title>Idhant — student, developer & creator</title>
-<meta name="description" content="Idhant — student, developer and creator. Building software, experimenting with AI, and making communication more accessible with SignBridge." />
+<meta name="description" content="Idhant — student, developer and creator. Building software, experimenting with AI, and making communication more accessible with SignBridge, an AI-powered Indian Sign Language system." />
+<link rel="canonical" href="https://idhant-portfolio.vercel.app/" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://idhant-portfolio.vercel.app/" />
+<meta property="og:site_name" content="Idhant — Portfolio" />
 <meta property="og:title" content="Idhant — building, creating, learning." />
-<meta property="og:image" content="assets/photos/signbridge-workspace.webp" />
+<meta property="og:description" content="Student, developer and creator. Explore SignBridge, video archive and personal projects focused on accessible communication." />
+<meta property="og:image" content="https://idhant-portfolio.vercel.app/assets/photos/signbridge-workspace.webp" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="1205" />
+<meta property="og:image:alt" content="SignBridge workspace with code on a laptop and camera setup" />
+<meta property="og:locale" content="en_IN" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Idhant — student, developer & creator" />
+<meta name="twitter:description" content="Building software, experimenting with AI, and making communication more accessible with SignBridge." />
+<meta name="twitter:image" content="https://idhant-portfolio.vercel.app/assets/photos/signbridge-workspace.webp" />
+<meta name="twitter:image:alt" content="SignBridge workspace preview" />
 <meta name="theme-color" content="#000000" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#000000" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial' font-size='20' font-style='italic' text-anchor='middle' fill='%23000'%3Ei%3C/text%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="assets/el/swag.png" />
+<link rel="manifest" href="site.webmanifest" />
+<!-- Performance: early hints -->
+<link rel="preload" href="css/style.css" as="style" />
+<link rel="preload" href="assets/fonts/Helvetica.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="assets/fonts/VCR.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="assets/el/swag.png" as="image" fetchpriority="high" />
+<link rel="preconnect" href="https://sign-bridge-plum-eta.vercel.app" crossorigin />
+<link rel="dns-prefetch" href="https://github.com" />
+<link rel="dns-prefetch" href="https://www.instagram.com" />
 <link rel="stylesheet" href="css/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Idhant",
+  "url": "https://idhant-portfolio.vercel.app/",
+  "sameAs": [
+    "https://www.instagram.com/paul_idhant/",
+    "https://github.com/paul-idhant/SignBridge"
+  ],
+  "jobTitle": "Student, Developer & Creator",
+  "description": "Student, developer and creator building software and AI experiments including SignBridge, an Indian Sign Language communication system.",
+  "knowsAbout": ["Software Development", "Artificial Intelligence", "Indian Sign Language", "Accessibility"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "SignBridge",
+  "description": "AI-powered Indian Sign Language communication system focused on accessible communication with privacy at the center.",
+  "url": "https://sign-bridge-plum-eta.vercel.app/",
+  "author": { "@type": "Person", "name": "Idhant" },
+  "keywords": "Artificial Intelligence, Indian Sign Language, Accessibility"
+}
+</script>
 </head>
 <body class="is-booting">
+<a class="skip-link" href="#work">Skip to content</a>
 
 <div class="backdrop" aria-hidden="true"></div>
 
-<div id="boot" class="boot" role="status" aria-label="Loading">
-  <img src="assets/el/swag.png" alt="" class="boot__img" />
-  <div class="boot__bar"><span id="bootFill"></span></div>
+<div id="boot" class="boot" role="status" aria-label="Loading" aria-live="polite">
+  <img src="assets/el/swag.png" alt="" class="boot__img" width="230" height="230" fetchpriority="high" decoding="async" />
+  <div class="boot__bar" aria-hidden="true"><span id="bootFill"></span></div>
   <div class="boot__pct" id="bootPct">000</div>
 </div>
 
-<div class="ctl">
-  <button class="ctl__b" id="invertToggle" aria-pressed="false">invert</button>
-  <button class="ctl__b" id="soundToggle" aria-pressed="false">music on/off</button>
+<div class="ctl" aria-label="Display controls">
+  <button class="ctl__b" id="invertToggle" type="button" aria-pressed="false" aria-label="Toggle invert colors">invert</button>
+  <button class="ctl__b" id="soundToggle" type="button" aria-pressed="false" aria-label="Toggle background music">music on/off</button>
 </div>
 
-<nav class="site-nav" aria-label="Main navigation"><a href="#top" data-nav class="site-brand">i.</a><div><a href="#work" data-nav>videos</a><a href="#about" data-nav>about</a><a href="#project" data-nav>project</a><a href="#contact" data-nav>find me ↗</a></div></nav>
+<header>
+<nav class="site-nav" aria-label="Main navigation"><a href="#top" data-nav class="site-brand" aria-label="Back to top — Idhant">i.</a><div><a href="#work" data-nav>videos</a><a href="#about" data-nav>about</a><a href="#project" data-nav>project</a><a href="#contact" data-nav>find me ↗</a></div></nav>
+</header>
 <main id="top">
 
 <!-- ============ 01 · FRONT ============ -->
-<section class="sec sec--dark hero" id="hero">
+<section class="sec sec--dark hero" id="hero" aria-label="Introduction">
   <div class="stage" data-rise>
-    <img src="assets/el/star-a.png" alt="" class="el el--star-a" aria-hidden="true" />
-    <img src="assets/el/star-b.png" alt="" class="el el--star-b" aria-hidden="true" />
-    <img src="assets/el/dice.png" alt="" class="el el--dice" aria-hidden="true" />
+    <img src="assets/el/star-a.png" alt="" class="el el--star-a" aria-hidden="true" width="403" height="403" decoding="async" />
+    <img src="assets/el/star-b.png" alt="" class="el el--star-b" aria-hidden="true" width="778" height="780" decoding="async" />
+    <img src="assets/el/dice.png" alt="" class="el el--dice" aria-hidden="true" width="450" height="450" decoding="async" />
     <h1 class="lay lay--name">idhant</h1>
     <p class="lay lay--tagline">builds.</p>
     <p class="hero__intro">STUDENT / DEVELOPER / CREATOR</p>
   </div>
-  <a class="cue" href="#work" data-nav aria-label="Scroll to work"><i></i></a>
+  <a class="cue" href="#work" data-nav aria-label="Scroll to video archive"><i></i></a>
 </section>
 
 <!-- ============ 02 · WORK ============ -->
 <section class="sec sec--dark machine" id="work" aria-label="Video portfolio">
-  <div class="machine__heading"><p class="eyebrow">01 / PLAY & EXPLORE</p><h2>My video archive.</h2><p>← → browse · ✕ watch the full video</p></div>
+  <div class="machine__heading"><p class="eyebrow">01 / PLAY &amp; EXPLORE</p><h2>My video archive.</h2><p>← → browse · ✕ watch the full video</p></div>
   <div class="stage" aria-hidden="true">
-    <img src="assets/el/flower.png" alt="" class="el el--flower" />
+    <img src="assets/el/flower.png" alt="" class="el el--flower" width="1248" height="1152" decoding="async" />
   </div>
   <div class="machine__stage">
-    <canvas id="pspCanvas"></canvas>
-    <div class="machine__loading" id="pspLoading"><i class="spin" aria-hidden="true"></i></div>
+    <canvas id="pspCanvas" aria-label="Interactive 3D PSP video player — use arrow keys or drag to rotate, Enter to open full video" role="img"></canvas>
+    <div class="machine__loading" id="pspLoading" aria-live="polite" aria-busy="true"><i class="spin" aria-hidden="true"></i><span class="sr-only">Loading 3D player</span></div>
+    <noscript><div class="machine__fallback"><p>Enable JavaScript to explore the interactive PSP player.</p><div class="machine__fallback-links"><a href="assets/videos/video-01.mp4" target="_blank" rel="noopener">On the pitch ↗</a><a href="assets/videos/video-02.mp4" target="_blank" rel="noopener">In transit ↗</a><a href="assets/videos/video-03.mp4" target="_blank" rel="noopener">After hours ↗</a></div></div></noscript>
   </div>
   <div class="rail" id="rail" aria-live="polite">
     <b id="railIdx">01</b><i id="railTot">/03</i>
@@ -60,13 +121,13 @@
 </section>
 
 <!-- ============ 03 · ABOUT ============ -->
-<section class="sec sec--dark about" id="about">
+<section class="sec sec--dark about" id="about" aria-labelledby="aboutTitle">
   <div class="stage">
-    <img src="assets/el/cd-a.png" alt="" class="el el--cd-a" aria-hidden="true" />
-    <img src="assets/el/cd-b.png" alt="" class="el el--cd-b" aria-hidden="true" />
+    <img src="assets/el/cd-a.png" alt="" class="el el--cd-a" aria-hidden="true" width="400" height="400" loading="lazy" decoding="async" />
+    <img src="assets/el/cd-b.png" alt="" class="el el--cd-b" aria-hidden="true" width="384" height="384" loading="lazy" decoding="async" />
     <div class="about__content">
       <p class="eyebrow">02 / THE PERSON BEHIND THE PROJECTS</p>
-      <h2>About me<span>.</span></h2>
+      <h2 id="aboutTitle">About me<span>.</span></h2>
       <div class="about__layout">
         <div class="about__photos" aria-label="A few moments from my life">
           <figure class="photo-print photo-print--candid">
@@ -102,7 +163,7 @@
 <section class="sec sec--dark project" id="project" aria-labelledby="projectTitle">
   <div class="project__inner">
     <p class="eyebrow">03 / FEATURED PROJECT</p>
-    <div class="project__top"><h2 id="projectTitle">SignBridge<span>↗</span></h2><span class="project__index">001</span></div>
+    <div class="project__top"><h2 id="projectTitle">SignBridge<span aria-hidden="true">↗</span></h2><span class="project__index">001</span></div>
     <div class="project__body">
       <figure class="project__photo">
         <div class="project__photo-head"><span>THE WORKSPACE / SIGNBRIDGE</span><span>003</span></div>
@@ -118,18 +179,23 @@
 </section>
 
 <!-- ============ 04 · CONTACT ============ -->
-<section class="sec sec--dark contact" id="contact">
+<section class="sec sec--dark contact" id="contact" aria-label="Contact">
   <div class="stage">
-    <img src="assets/el/cards.png" alt="" class="el el--cards" aria-hidden="true" />
+    <img src="assets/el/cards.png" alt="" class="el el--cards" aria-hidden="true" width="600" height="400" loading="lazy" decoding="async" />
     <h2 class="lay lay--contact">find</h2>
     <p class="lay lay--me" aria-hidden="true">me.</p>
     <div class="lay lay--icons">
-      <a href="https://www.instagram.com/paul_idhant/" target="_blank" rel="noopener noreferrer" aria-label="Find Idhant on Instagram, @paul_idhant"><img src="assets/el/ic-ig.png" alt="" class="icons__ig" /><span>@paul_idhant ↗</span></a>
+      <a href="https://www.instagram.com/paul_idhant/" target="_blank" rel="noopener noreferrer" aria-label="Find Idhant on Instagram, @paul_idhant"><img src="assets/el/ic-ig.png" alt="" class="icons__ig" width="38" height="38" loading="lazy" decoding="async" /><span>@paul_idhant ↗</span></a>
     </div>
   </div>
 </section>
 
 </main>
+
+<footer class="site-footer" aria-label="Footer">
+  <p>© <span id="footerYear"></span> Idhant. Built with curiosity — exploring code, AI and accessible communication.</p>
+  <p><a href="https://github.com/paul-idhant/Idhant-Portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a> · <a href="#top" data-nav>Back to top ↑</a></p>
+</footer>
 
 <dialog class="photo-viewer" id="photoViewer" aria-labelledby="photoViewerCaption">
   <div class="photo-viewer__top"><span>PERSONAL ARCHIVE</span><button type="button" id="photoClose" aria-label="Close photo viewer">close ✕</button></div>
@@ -138,7 +204,7 @@
 </dialog>
 
 <!-- Original soundtrack, preloaded and started after browser-approved interaction. -->
-<audio id="bgAudio" src="assets/audio/theme.mp3" loop preload="auto" playsinline></audio>
+<audio id="bgAudio" src="assets/audio/theme.mp3" loop preload="metadata" playsinline></audio>
 
 <script type="importmap">
 { "imports": {
