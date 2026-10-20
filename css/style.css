@@ -476,29 +476,29 @@ body.photo-is-open{overflow:hidden}
 .rp-paper-wrap{position:relative;will-change:transform;transform:translateY(calc(-100% + 3px));opacity:0;filter:drop-shadow(0 10px 24px rgba(0,0,0,.22))}
 .rp-root[data-stage="printing"] .rp-paper-wrap{opacity:1;animation:rp-print 1.75s linear forwards}
 .rp-root[data-stage="complete"] .rp-paper-wrap{transform:translateY(0);opacity:1}
-/* the paper is ink-on-paper: light paper + dark ink normally,
-   black paper + white ink when the site is inverted */
-.rp-paper{position:relative;background:var(--light);color:var(--on-light);padding:28px 22px 32px;font-family:var(--f-vcr),ui-monospace,monospace;font-size:10px;line-height:1.55;box-shadow:0 1px 0 rgba(0,0,0,.04)}
-.rp-paper::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.06;background-image:repeating-linear-gradient(0deg,transparent 0 22px,color-mix(in oklab,var(--on-light) 8%,transparent) 22px 23px)}
-.rp-paper-head{text-align:center;padding:6px 0 14px;border-bottom:1px dashed color-mix(in oklab,var(--on-light) 40%,var(--light));margin-bottom:16px}
-.rp-paper-logo{width:36px;height:36px;margin:0 auto 10px;background:var(--on-light);color:var(--light);display:grid;place-items:center;font-size:16px}
+/* the paper is always paper: a shade of white with black ink in BOTH themes —
+   only the machine shell/screen flip with the invert toggle */
+.rp-paper{position:relative;background:#fdfdfc;color:#0a0a0a;padding:28px 22px 32px;font-family:var(--f-vcr),ui-monospace,monospace;font-size:10px;line-height:1.55;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.rp-paper::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.06;background-image:repeating-linear-gradient(0deg,transparent 0 22px,rgba(10,10,10,.08) 22px 23px)}
+.rp-paper-head{text-align:center;padding:6px 0 14px;border-bottom:1px dashed #bbb;margin-bottom:16px}
+.rp-paper-logo{width:36px;height:36px;margin:0 auto 10px;background:#0a0a0a;color:#fdfdfc;display:grid;place-items:center;font-size:16px}
 .rp-paper-title{font:11px var(--f-vcr);letter-spacing:.18em}
 .rp-paper-sub{font-size:9px;letter-spacing:.08em;opacity:.55;margin-top:4px}
 .rp-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;font-size:10px}
 .rp-row b{font-weight:400}
 .rp-row--big b{font-size:13px;letter-spacing:-.03em}
-.rp-divider{height:1px;background:repeating-linear-gradient(90deg,color-mix(in oklab,var(--on-light) 45%,var(--light)) 0 4px,transparent 4px 8px);margin:10px 0;opacity:.7}
-.rp-divider--solid{height:1px;background:color-mix(in oklab,var(--on-light) 80%,var(--light));margin:12px 0}
+.rp-divider{height:1px;background:repeating-linear-gradient(90deg,#bbb 0 4px,transparent 4px 8px);margin:10px 0;opacity:.7}
+.rp-divider--solid{height:1px;background:#111;margin:12px 0}
 .rp-kv{display:flex;justify-content:space-between;gap:10px;padding:5px 0}
 .rp-kv span:first-child{opacity:.55}
 .rp-kv span:last-child{text-align:right}
-.rp-foot{margin-top:16px;text-align:center;border-top:1px dashed color-mix(in oklab,var(--on-light) 40%,var(--light));padding-top:14px}
+.rp-foot{margin-top:16px;text-align:center;border-top:1px dashed #bbb;padding-top:14px}
 .rp-foot p{margin:4px 0}
 .rp-foot strong{font-weight:400;letter-spacing:.04em}
-.rp-barcode{margin:14px auto 6px;width:100%;height:42px;background:repeating-linear-gradient(90deg,var(--on-light) 0 1px,var(--on-light) 2px,transparent 2px 3px,transparent 3px 5px,var(--on-light) 5px 7px,transparent 7px 8px);opacity:.9}
+.rp-barcode{margin:14px auto 6px;width:100%;height:42px;background:repeating-linear-gradient(90deg,#0a0a0a 0 1px,#0a0a0a 2px,transparent 2px 3px,transparent 3px 5px,#0a0a0a 5px 7px,transparent 7px 8px);opacity:.9}
 .rp-barcode-label{font-size:8px;letter-spacing:.28em;text-align:center;opacity:.45}
 .rp-print{margin-top:10px;display:flex;justify-content:center}
-.rp-print button{appearance:none;background:var(--on-light);color:var(--light);border:0;border-radius:999px;padding:10px 16px;font:11px var(--f-vcr);letter-spacing:.08em;cursor:pointer;transition:opacity .2s,transform .2s}
+.rp-print button{appearance:none;background:#0a0a0a;color:#fff;border:0;border-radius:999px;padding:10px 16px;font:11px var(--f-vcr);letter-spacing:.08em;cursor:pointer;transition:opacity .2s,transform .2s}
 .rp-print button:hover{opacity:.82;transform:translateY(-1px)}
 .rp-note{margin-top:18px;text-align:center;font:10px var(--f-vcr);letter-spacing:.08em;opacity:.38}
 @keyframes rp-print{
