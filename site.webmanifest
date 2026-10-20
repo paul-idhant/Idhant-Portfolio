@@ -1,0 +1,18 @@
+{
+  "name": "Idhant — student, developer & creator",
+  "short_name": "Idhant",
+  "description": "Student, developer and creator building software, AI experiments and SignBridge — an accessible Indian Sign Language communication system.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "assets/el/swag.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "en"
+}
