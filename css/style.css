@@ -435,3 +435,102 @@ body.photo-is-open{overflow:hidden}
  .photo-viewer{padding:12px;width:94vw}.photo-viewer__top,.photo-viewer__bottom{font-size:9px;gap:10px}
 }
 @media(prefers-reduced-motion:reduce){.photo-button img,.photo-expand{transition:none}}
+
+/* ============ RECEIPT PRINTER — personal keepsake ============
+   Every tone derives from the theme vars (--light/--dark/--on-light/
+   --on-dark) or color-mix off them, so the invert toggle flips the
+   machine, the screen and the paper together with the rest of the site. */
+.receipt{position:relative;overflow:hidden;padding:96px var(--gutter) 120px;background:var(--dark);color:var(--on-dark)}
+.receipt__inner{max-width:1200px;margin:0 auto}
+.receipt__head{max-width:720px;margin:0 0 42px}
+.receipt__head h2{font-size:clamp(42px,7vw,92px);font-weight:400;letter-spacing:-.065em;line-height:.92;margin:0 0 14px}
+.receipt__head h2 span{font-family:var(--f-vcr);font-size:.28em;letter-spacing:.12em;vertical-align:middle;margin-left:.4em;opacity:.45}
+.receipt__head>p{font-size:16px;line-height:1.6;opacity:.62;margin:0;max-width:56ch}
+.rp-root{position:relative;isolate;display:flex;flex-direction:column;align-items:center;width:100%;max-width:380px;margin:56px auto 0}
+.rp-machine{position:relative;isolate;width:100%;overflow:hidden;border-radius:24px;border:1px solid color-mix(in oklab,var(--on-dark) 12%,var(--dark));background:color-mix(in oklab,var(--on-dark) 7%,var(--dark));padding:12px 12px 28px;box-shadow:0 20px 36px -20px rgba(0,0,0,.55),0 6px 14px -8px rgba(0,0,0,.24),inset 0 1px 0 color-mix(in oklab,var(--on-dark) 9%,transparent),inset 0 -1px 0 rgba(0,0,0,.35)}
+.rp-machine::before{content:'';position:absolute;inset:0;z-index:0;border-radius:inherit;opacity:.28;pointer-events:none;background-image:radial-gradient(ellipse at 18% 8%,color-mix(in oklab,var(--on-dark) 5%,transparent),transparent 55%),repeating-linear-gradient(90deg,color-mix(in oklab,var(--on-dark) 2%,transparent) 0 1px,transparent 1px 3px)}
+.rp-header{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;height:44px}
+.rp-logo{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:color-mix(in oklab,var(--on-dark) 10%,var(--dark));border:1px solid color-mix(in oklab,var(--on-dark) 18%,var(--dark));color:var(--on-dark);font-size:13px}
+.rp-replay{appearance:none;display:inline-flex;align-items:center;gap:6px;background:color-mix(in oklab,var(--on-dark) 10%,var(--dark));border:1px solid color-mix(in oklab,var(--on-dark) 20%,var(--dark));color:var(--on-dark);border-radius:999px;padding:7px 12px;font:10px var(--f-vcr);letter-spacing:.07em;cursor:pointer;transition:background .2s,transform .2s,border-color .2s}
+.rp-replay:hover{background:color-mix(in oklab,var(--on-dark) 16%,var(--dark));border-color:color-mix(in oklab,var(--on-dark) 26%,var(--dark));transform:translateY(-1px)}
+.rp-replay:active{transform:translateY(0)}
+.rp-screen{position:relative;z-index:1;overflow:hidden;border-radius:16px;border:1px solid color-mix(in oklab,var(--on-dark) 14%,var(--dark));background:color-mix(in oklab,var(--on-dark) 3%,var(--dark));padding:16px;box-shadow:inset 0 0 24px 4px rgba(0,0,0,.45)}
+.rp-screen::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--on-dark) 4%,transparent)}
+.rp-screen-inner{display:flex;flex-direction:column;gap:12px}
+.rp-pro{font:10px var(--f-vcr);letter-spacing:.12em;opacity:.42}
+.rp-totals{display:flex;justify-content:space-between;align-items:baseline}
+.rp-pro-name{font-size:18px;letter-spacing:-.04em;line-height:1.1}
+.rp-pro-sub{font:10px var(--f-vcr);opacity:.48;letter-spacing:.06em;margin-top:3px}
+.rp-total-box{text-align:right}
+.rp-total-label{font:9px var(--f-vcr);letter-spacing:.12em;opacity:.4}
+.rp-total-val{font-size:22px;letter-spacing:-.05em;line-height:1}
+.rp-status{display:flex;align-items:center;gap:8px;font:12px var(--f-vcr);letter-spacing:.04em;line-height:1;margin-top:2px}
+.rp-status-dot{width:18px;height:18px;display:grid;place-items:center;flex:none}
+.rp-status-dot .spin{width:14px;height:14px;border-width:1.5px}
+.rp-status-dot .check{width:18px;height:18px;border-radius:999px;background:#16a34a;color:#fff;display:grid;place-items:center;font-size:11px;line-height:1}
+.rp-slot{position:absolute;left:22px;right:22px;bottom:12px;height:8px;border-radius:6px;background:color-mix(in oklab,var(--on-dark) 2%,var(--dark));border:1px solid color-mix(in oklab,var(--on-dark) 10%,var(--dark));box-shadow:inset 0 1px 2px rgba(0,0,0,.5),0 1px 0 color-mix(in oklab,var(--on-dark) 6%,transparent);z-index:2}
+.rp-output{position:relative;z-index:5;margin:-8px 0 0;width:calc(80% + 42px);max-width:100%;height:560px;overflow:hidden;padding:0 18px}
+.rp-output::before{content:'';position:absolute;inset:-1px 18px auto;top:-1px;height:8px;background:rgba(0,0,0,.55);filter:blur(6px);border-radius:999px;pointer-events:none;z-index:2;opacity:0;transition:opacity .2s}
+.rp-root[data-stage="printing"] .rp-output::before,
+.rp-root[data-stage="complete"] .rp-output::before{opacity:1}
+.rp-paper-wrap{position:relative;will-change:transform;transform:translateY(calc(-100% + 3px));opacity:0;filter:drop-shadow(0 10px 24px rgba(0,0,0,.22))}
+.rp-root[data-stage="printing"] .rp-paper-wrap{opacity:1;animation:rp-print 1.75s linear forwards}
+.rp-root[data-stage="complete"] .rp-paper-wrap{transform:translateY(0);opacity:1}
+/* the paper is ink-on-paper: light paper + dark ink normally,
+   black paper + white ink when the site is inverted */
+.rp-paper{position:relative;background:var(--light);color:var(--on-light);padding:28px 22px 32px;font-family:var(--f-vcr),ui-monospace,monospace;font-size:10px;line-height:1.55;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.rp-paper::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.06;background-image:repeating-linear-gradient(0deg,transparent 0 22px,color-mix(in oklab,var(--on-light) 8%,transparent) 22px 23px)}
+.rp-paper-head{text-align:center;padding:6px 0 14px;border-bottom:1px dashed color-mix(in oklab,var(--on-light) 40%,var(--light));margin-bottom:16px}
+.rp-paper-logo{width:36px;height:36px;margin:0 auto 10px;background:var(--on-light);color:var(--light);display:grid;place-items:center;font-size:16px}
+.rp-paper-title{font:11px var(--f-vcr);letter-spacing:.18em}
+.rp-paper-sub{font-size:9px;letter-spacing:.08em;opacity:.55;margin-top:4px}
+.rp-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;font-size:10px}
+.rp-row b{font-weight:400}
+.rp-row--big b{font-size:13px;letter-spacing:-.03em}
+.rp-divider{height:1px;background:repeating-linear-gradient(90deg,color-mix(in oklab,var(--on-light) 45%,var(--light)) 0 4px,transparent 4px 8px);margin:10px 0;opacity:.7}
+.rp-divider--solid{height:1px;background:color-mix(in oklab,var(--on-light) 80%,var(--light));margin:12px 0}
+.rp-kv{display:flex;justify-content:space-between;gap:10px;padding:5px 0}
+.rp-kv span:first-child{opacity:.55}
+.rp-kv span:last-child{text-align:right}
+.rp-foot{margin-top:16px;text-align:center;border-top:1px dashed color-mix(in oklab,var(--on-light) 40%,var(--light));padding-top:14px}
+.rp-foot p{margin:4px 0}
+.rp-foot strong{font-weight:400;letter-spacing:.04em}
+.rp-barcode{margin:14px auto 6px;width:100%;height:42px;background:repeating-linear-gradient(90deg,var(--on-light) 0 1px,var(--on-light) 2px,transparent 2px 3px,transparent 3px 5px,var(--on-light) 5px 7px,transparent 7px 8px);opacity:.9}
+.rp-barcode-label{font-size:8px;letter-spacing:.28em;text-align:center;opacity:.45}
+.rp-print{margin-top:10px;display:flex;justify-content:center}
+.rp-print button{appearance:none;background:var(--on-light);color:var(--light);border:0;border-radius:999px;padding:10px 16px;font:11px var(--f-vcr);letter-spacing:.08em;cursor:pointer;transition:opacity .2s,transform .2s}
+.rp-print button:hover{opacity:.82;transform:translateY(-1px)}
+.rp-note{margin-top:18px;text-align:center;font:10px var(--f-vcr);letter-spacing:.08em;opacity:.38}
+@keyframes rp-print{
+  0%{transform:translateY(calc(-100% + 2px))}
+  7.5%{transform:translateY(-91%)}
+  10.5%{transform:translateY(-91%)}
+  18%{transform:translateY(-81%)}
+  21%{transform:translateY(-81%)}
+  28.5%{transform:translateY(-70%)}
+  31.5%{transform:translateY(-70%)}
+  39%{transform:translateY(-58%)}
+  42%{transform:translateY(-58%)}
+  49.5%{transform:translateY(-45%)}
+  52.5%{transform:translateY(-45%)}
+  60%{transform:translateY(-32%)}
+  63%{transform:translateY(-32%)}
+  70.5%{transform:translateY(-20%)}
+  73.5%{transform:translateY(-20%)}
+  81%{transform:translateY(-10%)}
+  84%{transform:translateY(-10%)}
+  91.5%{transform:translateY(-3%)}
+  94.5%{transform:translateY(-3%)}
+  100%{transform:translateY(0%)}
+}
+@media(max-width:820px){
+  .receipt{padding:72px var(--gutter) 90px}
+  .receipt__head h2{font-size:clamp(40px,11vw,64px)}
+  .rp-root{max-width:360px}
+  .rp-output{height:560px;width:calc(84% + 32px)}
+  .rp-machine{border-radius:22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .rp-paper-wrap{transition:none;animation:none !important;transform:translateY(0) !important;opacity:1 !important}
+  .rp-replay,.rp-print button{transition:none}
+}
