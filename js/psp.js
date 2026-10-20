@@ -31,48 +31,14 @@ const railTot = document.getElementById('railTot');
 const railOpen = document.getElementById('railOpen');
 const railEl = document.getElementById('rail');
 
-if (canvas && WORKS.length) {
-  // Defer init until a frame after boot so the loader stays visible on slow devices
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-} else if (canvas && !WORKS.length) {
-  const el = document.getElementById('pspLoading');
-  if (el) el.textContent = 'NO MEDIA — js/data.js is empty';
-  SK.fireReady();
-}
-
-function isWebGLAvailable() {
-  try {
-    const c = document.createElement('canvas');
-    return !!(c.getContext('webgl') || c.getContext('experimental-webgl') || c.getContext('webgl2'));
-  } catch (e) { return false; }
-}
-
-function showFallback(html) {
-  if (loadingEl) {
-    loadingEl.classList.remove('is-off');
-    loadingEl.setAttribute('role', 'status');
-    loadingEl.innerHTML = '<div class="machine__error">' + html + '</div>';
-  }
-  SK.fireReady();
-}
+if (canvas && WORKS.length) init();
 
 function init() {
 
   /* ---------------------------------------------------------- */
   /* RENDERER / SCENE                                            */
   /* ---------------------------------------------------------- */
-  if (!isWebGLAvailable()) {
-    showFallback('3D NOT SUPPORTED — <a href=\"assets/videos/video-01.mp4\" target=\"_blank\" rel=\"noopener\">watch the videos directly ↗</a>');
-    return;
-  }
-  let renderer;
-  try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-  } catch (e) {
-    showFallback('3D FAILED TO START — <a href=\"assets/videos/video-01.mp4\" target=\"_blank\" rel=\"noopener\">watch the videos directly ↗</a>');
-    return;
-  }
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
@@ -269,7 +235,8 @@ function init() {
     undefined,
     (err) => {
       console.error('[psp] model failed', err);
-      showFallback('HARDWARE UNAVAILABLE — <a href=\"assets/works/video-01.jpg\" target=\"_blank\" rel=\"noopener\">view the archive posters ↗</a> · check <code>assets/models/psp.glb</code>');
+      if (loadingEl) loadingEl.textContent = 'HARDWARE UNAVAILABLE — assets/models/psp.glb did not load';
+      SK.fireReady();
     }
   );
 
@@ -304,7 +271,7 @@ function init() {
 
     bin.forEach((o) => { o.parent && o.parent.remove(o); });
 
-    if (!screenMesh) { console.warn('[psp] no screen mesh'); showFallback('DISPLAY FAULT — screen mesh missing in <code>psp.glb</code>'); return; }
+    if (!screenMesh) { console.warn('[psp] no screen mesh'); SK.fireReady(); return; }
 
     /* --- work out the screen plane in world space -----------
        The screen is a thin box, so averaging vertex normals cancels
